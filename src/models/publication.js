@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     // https://lorenstewart.me/2016/10/03/sequelize-crud-101/
     user_id: {
       type: DataTypes.UUID,
-      allowNull: false
+      // Mas adelante tenemos que ponerle false aca
+      allowNull: true
     }
   }, {});
   publication.associate = function(models) {
