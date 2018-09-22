@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    description: DataTypes.STRING,
   }, {});
   category.associate = function(models) {
     category.hasMany(models.publication);

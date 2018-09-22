@@ -1,0 +1,23 @@
+<h1>Create User</h1>
+<div>
+    <form action="<%= submitPath %>" method="post">
+      <% if (!user.isNewRecord) { %>
+        <input type="hidden" name="_method" value="patch" />
+      <% } %>
+      <label for="firstName">
+        <span>Nombre</span>
+        <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>" />
+      </label>
+      <label for="lastName">
+        <span>Apellido</span>
+        <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>" />
+      </label>
+      <label for="location">
+        <span>Dirección</span>
+        <input type="text" name="location" id="location" value="<%= user.location %>" />
+      </label>
+      <div class="actions">
+        <input type="submit" value="<%= user.isNewRecord ? 'Crear' : 'Editar' %>" />
+      </div>
+    </form>
+  </div>

@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     // Cada objeto necesita si o si un id de usuario.
     // Dejo Link, aparece explicado muy filete
     // https://lorenstewart.me/2016/10/03/sequelize-crud-101/
-    user_id: {
-      type: DataTypes.UUID,
+    // user_id: {
+      // type: DataTypes.UUID,
       // Mas adelante tenemos que ponerle false aca
-      allowNull: true
-    }
+      // allowNull: true
+    // }
   }, {});
   publication.associate = function(models) {
     publication.belongsTo(models.category);

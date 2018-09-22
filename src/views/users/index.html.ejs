@@ -1,1 +1,41 @@
-<h1>Create User</h1>
+<h1>Todos los usuarios</h1>
+
+<p>Hay un total de <%= users.length %> usuarios</p>
+<p>
+  <a href="<%= newUserPath %>">Crear nuevo usuario</a>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Dirección</th>
+      <th>acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(user => { %>
+      <tr>
+        <td><%= user.firstName %></td>
+        <td><%= user.lastName %></td>
+        <td><%= user.location %></td>
+        <td>
+          <ul>
+            <li><a href="<%= getShowPath(user) %>">Ver</a></li>
+            <li><a href="<%= getEditPath(user) %>">Editar</a></li>
+            <li>
+              <form action="<%= getDestroyPath(user) %>" method="post">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" value="Borrar" />
+              </form>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+  <p>
+  <a href="/">Ir al Index</a>
+  </p>
+</table>

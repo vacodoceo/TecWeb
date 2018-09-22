@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     user_id: {
       type: DataTypes.UUID,
       allowNull: false
-    }
+    },
   }, {});
   bid.associate = function(models) {
     bid.belongsTo(models.user)

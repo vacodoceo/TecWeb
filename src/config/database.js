@@ -1,18 +1,18 @@
 const config = {
   default: {
-    username: process.env.DB_USERNAME || 'santi',
-    password: process.env.DB_PASSWORD || 'pass',
+    username: process.env.DB_USERNAME || 'postgres',
+    password: process.env.DB_PASSWORD || 'asd123',
     dialect: process.env.DB_DIALECT || 'postgres',
     database: process.env.DB_NAME,
     host: process.env.DB_HOST || '127.0.0.1',
   },
   development: {
     extend: 'default',
-    database: process.env.DB_NAME || 'iic2513template_dev',
+    database: process.env.DB_NAME || 'gift_exchange',
   },
   test: {
     extend: 'default',
-    database: 'iic2513template_dev',
+    database: 'gift_exchange_test',
   },
   production: {
     extend: 'default',

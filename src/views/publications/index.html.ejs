@@ -1,7 +1,7 @@
 <h1>Todas las publicaciones</h1>
 <p>Hay un total de <%= publications.length %> publicaciones</p>
 <p>
-  <a href="<%= newpublicationPath %>">Crear nueva publicación</a>
+  <a href="<%= newPublicationPath %>">Crear nueva publicación</a>
 </p>
 <table>
   <thead>
@@ -10,6 +10,7 @@
       <th>Categoría</th>
       <th>Tipo de intercambio</th>
       <th>Valor Estimado</th>
+      <th>Propietario<th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -24,8 +25,15 @@
             <% } %>
           <% }) %>
         </td>
-        <td><%= publication.exchange_type %></td>
+        <td><%= (publication.exchange_type == 'gift')? "Regalo" : "Intercambio" %></td>
         <td><%= publication.value %></td>
+        <td>
+          <% users.forEach(user => { %>
+            <% if (user.id == publication.userId) { %>
+              <%= user.firstName + ' ' + user.lastName %>
+            <% } %>
+          <% }) %>
+        </td>
         <td>
           <ul>
             <li><a href="<%= getShowPath(publication) %>">Ver</a></li>
@@ -41,4 +49,7 @@
       </tr>
     <% }) %>
   </tbody>
+  <p>
+  <a href="/">Ir al Index</a>
+  </p>
 </table>
