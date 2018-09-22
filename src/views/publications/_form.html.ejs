@@ -7,13 +7,26 @@
         <span>Título</span>
         <input type="text" name="title" id="title" value="<%= publication.title %>" />
       </label>
+      <label for="categoryId">
+        <span>Categoría</span>
+        <select name="categoryId" id="categoryId" />
+          <option disabled selected value> -- Selecciona una categoría --
+            <% categories.forEach(category => { %>
+              <option <%= publication.categoryId == category.id ? 'selected' : '' %> value="<%= category.id %>" ><%= category.name %> </option>
+            <% }) %>
+        </select>
+      </label>
       <label for="description">
         <span>Descripción</span>
         <input type="text" name="description" id="description" value="<%= publication.description %>" />
       </label>
       <label for="exchange_type">
         <span>Tipo de intercambio</span>
-        <input type="text" name="exchange_type" id="exchange_type" value="<%= publication.exchange_type %>" />
+        <select name="exchange_type" id="exchange_type" />
+          <option disabled selected value> -- Selecciona un tipo de intercambio --            
+            <option <%= publication.exchange_type == 'gift' ? 'selected' : '' %> value="gift" >Regalo </option>
+            <option <%= publication.exchange_type == 'exchange' ? 'selected' : '' %> value="exchange" >Intercambio </option>
+        </select>
       </label>
       <label for="value">
         <span>Valor aproximado</span>

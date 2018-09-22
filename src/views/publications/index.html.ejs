@@ -17,8 +17,13 @@
     <% publications.forEach(publication => { %>
       <tr>
         <td><%= publication.title %></td>
-        <td>categoria lol</td>
-        <!-- <td><%= publication.category %></td> -->
+        <td>
+          <% categories.forEach(category => { %>
+            <% if (category.id == publication.categoryId) { %>
+              <%= category.name %>
+            <% } %>
+          <% }) %>
+        </td>
         <td><%= publication.exchange_type %></td>
         <td><%= publication.value %></td>
         <td>
