@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   publication.associate = function(models) {
     publication.belongsTo(models.category);
-    publication.belongsTo(models.User);
+    publication.belongsTo(models.user);
   };
   return publication;
 };

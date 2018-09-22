@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   review.associate = function(models) {
-    review.belongsTo(models.User)
+    review.belongsTo(models.user)
   };
   return review;
 };

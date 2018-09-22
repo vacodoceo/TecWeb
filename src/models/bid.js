@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   bid.associate = function(models) {
-    bid.belongsTo(models.User)
+    bid.belongsTo(models.user)
   };
   return bid;
 };

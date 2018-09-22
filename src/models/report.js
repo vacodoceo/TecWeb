@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
 
   }, {});
   report.associate = function(models) {
-    report.belongsTo(db.User)
+    report.belongsTo(models.user)
   };
   return report;
 };
