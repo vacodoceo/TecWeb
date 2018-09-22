@@ -1,0 +1,39 @@
+<h1>Todas las publicaciones</h1>
+<p>Hay un total de <%= publications.length %> publicaciones</p>
+<p>
+  <a href="<%= newpublicationPath %>">Crear nueva publicación</a>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Categoría</th>
+      <th>Tipo de intercambio</th>
+      <th>Valor Estimado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% publications.forEach(publication => { %>
+      <tr>
+        <td><%= publication.title %></td>
+        <td>categoria lol</td>
+        <!-- <td><%= publication.category %></td> -->
+        <td><%= publication.exchange_type %></td>
+        <td><%= publication.value %></td>
+        <td>
+          <ul>
+            <li><a href="<%= getShowPath(publication) %>">Ver</a></li>
+            <li><a href="<%= getEditPath(publication) %>">Editar</a></li>
+            <li>
+              <form action="<%= getDestroyPath(publication) %>" method="post">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" value="Borrar" />
+              </form>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

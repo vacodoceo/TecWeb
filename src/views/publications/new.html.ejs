@@ -1,0 +1,7 @@
+<h1>Crear publicación</h1>
+
+<%# This special tag is an EJS comment %>
+<%# And the one below is similar to the one we've been using to output values to the template's result %>
+<%# but we cannot use the same one here since it automatically escapes HTML (converting <div> to &lt;div&gt;, for example) %>
+<%# The one below, instead, will write its value directly to the end result, no escaping %>
+<%- include('_form') %>

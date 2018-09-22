@@ -1,0 +1,26 @@
+<div>
+    <form action="<%= submitPath %>" method="post">
+      <% if (!publication.isNewRecord) { %>
+        <input type="hidden" name="_method" value="patch" />
+      <% } %>
+      <label for="title">
+        <span>Título</span>
+        <input type="text" name="title" id="title" value="<%= publication.title %>" />
+      </label>
+      <label for="description">
+        <span>Descripción</span>
+        <input type="text" name="description" id="description" value="<%= publication.description %>" />
+      </label>
+      <label for="exchange_type">
+        <span>Tipo de intercambio</span>
+        <input type="text" name="exchange_type" id="exchange_type" value="<%= publication.exchange_type %>" />
+      </label>
+      <label for="value">
+        <span>Valor aproximado</span>
+        <input type="text" name="value" id="value" value="<%= publication.value %>" />
+      </label>
+      <div class="actions">
+        <input type="submit" value="<%= publication.isNewRecord ? 'Crear' : 'Editar' %>" />
+      </div>
+    </form>
+  </div>
