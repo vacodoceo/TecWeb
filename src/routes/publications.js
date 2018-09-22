@@ -6,13 +6,19 @@ router.param('id', async (id, ctx, next) => {
     ctx.assert(publication, 404);
     ctx.state.publication = publication;
 
+    const categories = await ctx.orm.category.findAll();
+    ctx.assert(categories, 404);
+    ctx.state.categories = categories;
+
     return next();
 });  
 
 router.get('publications', '/', async (ctx) => {
     const publications = await ctx.orm.publication.findAll();
+    const categories = await ctx.orm.category.findAll();
     return ctx.render('publications/index', {
       publications,
+      categories,
       newpublicationPath: ctx.router.url('publications-new'),
       getShowPath: publication => ctx.router.url('publications-show', publication.id),
       getEditPath: publication => ctx.router.url('publications-edit', publication.id),
@@ -24,7 +30,7 @@ router.get('publications-new', '/new', async (ctx) => {
     const categories = await ctx.orm.category.findAll();
     return ctx.render('publications/new', {
         publication: ctx.orm.publication.build(), 
-        categories: categories,
+        categories,
         submitPath: ctx.router.url('publications-create'),
     });
 });
