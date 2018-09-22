@@ -5,11 +5,12 @@ router.param('id', async (id, ctx, next) => {
     const publication = await ctx.orm.publication.findById(ctx.params.id);
     ctx.assert(publication, 404);
     ctx.state.publication = publication;
+
     return next();
 });  
 
 router.get('publications', '/', async (ctx) => {
-    const publications = await await ctx.orm.publication.findAll();
+    const publications = await ctx.orm.publication.findAll();
     return ctx.render('publications/index', {
       publications,
       newpublicationPath: ctx.router.url('publications-new'),
@@ -19,13 +20,14 @@ router.get('publications', '/', async (ctx) => {
     });
 });
 
-router.get('publications-new', '/new', ctx => ctx.render(
-    'publications/new',
-    {
-      publication: ctx.orm.publication.build(), 
-      submitPath: ctx.router.url('publications-create'),
-    },
-  ));
+router.get('publications-new', '/new', async (ctx) => {    
+    const categories = await ctx.orm.category.findAll();
+    return ctx.render('publications/new', {
+        publication: ctx.orm.publication.build(), 
+        categories: categories,
+        submitPath: ctx.router.url('publications-create'),
+    });
+});
 
 router.post('publications-create', '/', async (ctx) => {
     await ctx.orm.publication.create(ctx.request.body);
@@ -35,12 +37,14 @@ router.get('publications-show', '/:id', async (ctx) => {
     ctx.body = ctx.state.publication;
 });
 
-router.get('publications-edit', '/:id/edit', (ctx) => {
+router.get('publications-edit', '/:id/edit', async (ctx) => {
     const { publication } = ctx.state;
+    const categories = await ctx.orm.category.findAll();
     return ctx.render(
       'publications/edit',
       {
         publication,
+        categories,
         submitPath: ctx.router.url('publications-update', publication.id),
       },
     );
