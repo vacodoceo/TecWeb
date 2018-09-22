@@ -55,4 +55,6 @@ router.delete('publications-destroy', '/:id', async (ctx) => {
     await ctx.state.publication.destroy();
     ctx.redirect(ctx.router.url('publications'));
 });
+
+
 module.exports = router;
