@@ -8,10 +8,18 @@ module.exports = (sequelize, DataTypes) => {
     logo: DataTypes.STRING,
     value: DataTypes.INTEGER,
     description: DataTypes.STRING,
-    exchange_type: DataTypes.STRING
+    exchange_type: DataTypes.STRING,
+    // Cada objeto necesita si o si un id de usuario.
+    // Dejo Link, aparece explicado muy filete
+    // https://lorenstewart.me/2016/10/03/sequelize-crud-101/
+    user_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    }
   }, {});
   publication.associate = function(models) {
     publication.belongsTo(models.category);
+    publication.belongsTo(models.User);
   };
   return publication;
 };

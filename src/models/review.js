@@ -2,10 +2,15 @@
 module.exports = (sequelize, DataTypes) => {
   const review = sequelize.define('review', {
     score: DataTypes.INTEGER,
-    feedback: DataTypes.STRING
+    feedback: DataTypes.STRING,
+    // Cada Review necesita un user ID
+    user_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    }
   }, {});
   review.associate = function(models) {
-    // associations can be defined here
+    review.belongsTo(models.User)
   };
   return review;
 };

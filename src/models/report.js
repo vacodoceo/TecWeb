@@ -1,10 +1,15 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const report = sequelize.define('report', {
-    description: DataTypes.STRING
+    description: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.UUID,
+      allowNull: false
+    }
+
   }, {});
   report.associate = function(models) {
-    // associations can be defined here
+    report.belongsTo(db.User)
   };
   return report;
 };
