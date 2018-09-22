@@ -45,14 +45,15 @@ router.get('users-edit', '/:id/edit', (ctx) => {
       },
     );
   });
-router.patch('users-update', '/:id', async (ctx) => {
-    ctx.body = await ctx.state.user.update(
-        ctx.request.body,
-        { fields: ['title', 'description', 'logo', 'value', 'categoryId', 'exchange_type'] },
-    );
-});
+// router.patch('users-update', '/:id', async (ctx) => {
+//     ctx.body = await ctx.state.user.update(
+//         ctx.request.body,
+//         { fields: ['title', 'description', 'logo', 'value', 'categoryId', 'exchange_type'] },
+//     );
+// });
 router.delete('users-destroy', '/:id', async (ctx) => {
     await ctx.state.user.destroy();
     ctx.redirect(ctx.router.url('users'));
 });
+
 module.exports = router;

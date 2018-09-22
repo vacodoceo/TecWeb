@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.ENUM,
-      values: ['user', 'admin']
-
+      values: ['user', 'admin'],
+      defaultValue: 'user'
     },
     location: {
         type: DataTypes.STRING,
@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     created_at: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
+      defaultValue: Date.now()
     },
     updated_at:  DataTypes.DATE,
     deleted_at: DataTypes.DATE

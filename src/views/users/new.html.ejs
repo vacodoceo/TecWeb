@@ -1,1 +1,19 @@
-<h1>Vernes es un crack?</h1>
+<h1>Create User</h1>
+<div>
+    <form action="<%= submitPath %>" method="post">
+      <% if (!user.isNewRecord) { %>
+        <input type="hidden" name="_method" value="patch" />
+      <% } %>
+      <label for="title">
+        <span>Nomre</span>
+        <input type="text" name="title" id="title" value="<%= user.name %>" />
+      </label>
+      <label for="description">
+        <span>Direccion</span>
+        <input type="text" name="description" id="description" value="<%= user.location %>" />
+      </label>
+      <div class="actions">
+        <input type="submit" value="<%= user.isNewRecord ? 'Crear' : 'Editar' %>" />
+      </div>
+    </form>
+  </div>
