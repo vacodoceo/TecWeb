@@ -9,7 +9,7 @@ router.param('id', async (id, ctx, next) => {
 });  
 
 router.get('users', '/', async (ctx) => {
-    const users = await await ctx.orm.user.findAll();
+    const users = await ctx.orm.user.findAll();
     return ctx.render('users/index', {
       users,
       newUserPath: ctx.router.url('users-new'),
