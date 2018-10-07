@@ -1,2 +1,63 @@
 @import './layout';
 @import './hello';
+
+$primary: #001CBB;
+$secondary: #220AD2;
+$terciary: #0A5DD2;
+$final: #0A8AC8;
+
+
+
+body{
+    background-image: url(../images/Gift.jpg);
+    position: fixed;
+}
+
+.container{
+    margin-top: 10%;
+    margin-left: 10%;
+    padding: 20px;
+    padding-right: 100px;
+    padding-left: 100px;
+    flex-direction: column;
+    background-color: $final;
+    border-bottom-left-radius: 20%;
+    border-top-right-radius: 20%;
+    max-width: 70%;
+    margin-right: 30%
+}
+
+.containerH{
+    display: flex;
+}
+
+.box1{
+    flex: 1;
+    display: inline-block;
+    margin-left: 5%;
+    $ancho: 110%;
+    button{
+        width: 100%;
+        border-bottom-left-radius: 20%;
+        border-top-right-radius: 20%;
+        background-color: $primary;
+        color: black;
+        font-size: 200%;
+        padding: 10%;
+        display: inline-block;
+    }
+}
+
+.box2{
+    flex: 2
+}
+
+.box3{
+    flex: 3
+}
+
+.title{
+    font-size: 400%;
+    color: $primary;
+}
+

@@ -1,6 +1,6 @@
 const config = {
   default: {
-    username: process.env.DB_USERNAME || 'postgres',
+    username: process.env.DB_USERNAME || 'santi' ,
     password: process.env.DB_PASSWORD || 'asd123',
     dialect: process.env.DB_DIALECT || 'postgres',
     database: process.env.DB_NAME,
