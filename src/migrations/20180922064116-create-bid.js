@@ -18,7 +18,22 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
+      publicationId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'publications',
+          key: 'id'
+        }
+      },
+      // Luego hay que agregar otra columna opcional por si queremos incluir alguna publicación como oferta
     });
   },
   down: (queryInterface, Sequelize) => {
