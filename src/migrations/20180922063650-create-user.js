@@ -23,6 +23,12 @@ module.exports = {
           type: Sequelize.STRING,
           required: true
       },
+      password: {
+        type: Sequelize.STRING,
+      }, 
+      email: {
+        type: Sequelize.STRING,
+      }, 
       reputation: {
           type: Sequelize.FLOAT,
           required: false,

@@ -24,6 +24,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         required: true
     },
+    password: {
+        type: DataTypes.STRING,
+        required: true
+    },
+    email: {
+        type: DataTypes.STRING,
+        required: true
+    },
     reputation: {
         type: DataTypes.FLOAT,
         required :false,
