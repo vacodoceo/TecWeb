@@ -9,7 +9,10 @@ router.param('id', async (id, ctx, next) => {
 });  
 
 router.get('bids', '/', async (ctx) => {
-    return ctx.render('bids/index', {
+    ctx.body = await ctx.orm.bid.findAll({
+        where: { 
+            publicationId: ctx.params.pid 
+        } 
     });
 });
 
@@ -37,13 +40,6 @@ router.get('bids-edit', '/:id/edit', async (ctx) => {
         submitPath: ctx.router.url('bids-update', bid.id),
       });
   });
-
-router.patch('bids-update', '/:id', async (ctx) => {
-    ctx.body = await ctx.state.bid.update(
-        ctx.request.body,
-        { fields: ['title', 'description', 'logo', 'value', 'categoryId', 'exchange_type'] },
-    );
-});
 
 router.delete('bids-destroy', '/:id', async (ctx) => {
     await ctx.state.bid.destroy();
