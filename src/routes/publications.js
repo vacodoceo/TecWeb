@@ -21,6 +21,7 @@ router.get('publications', '/', async (ctx) => {
       getShowPath: publication => ctx.router.url('publications-show', publication.id),
       getEditPath: publication => ctx.router.url('publications-edit', publication.id),
       getDestroyPath: publication => ctx.router.url('publications-destroy', publication.id),
+      newBidPath: publication => ctx.router.url('bids-new', publication.id),
     });
 });
 

@@ -1,9 +1,7 @@
 <div class="Full">
-  <a href="/">
-    <div class="fondoAzulCool">
-      <h1>Publicaciones</h1>
-    </div>
-  </a>
+  <div class="fondoAzulCool">
+    <h1>Publicaciones</h1>
+  </div>
   <div class="container2">
     <table class="cardTable">
       <thead>
@@ -45,13 +43,17 @@
           </td>
           <td>
             <a href="<%= getShowPath(publication) %>">Ver</a>
-            <% if (locals.currentUser && currentUser.id === publication.userId) { %>
-              <a href="<%= getEditPath(publication) %>">Editar</a>
-              <form action="<%= getDestroyPath(publication) %>" method="post">
-                <input type="hidden" name="_method" value="delete" />
-                <input type="submit" value="Borrar" />
-              </form>
-            <% } %>
+            <% if (locals.currentUser) { %>
+              <% if (currentUser.id === publication.userId) { %>
+                <a href="<%= getEditPath(publication) %>">Editar</a>
+                <form action="<%= getDestroyPath(publication) %>" method="post">
+                  <input type="hidden" name="_method" value="delete" />
+                  <input type="submit" value="Borrar" />
+                </form>
+              <% } else { %>
+                <a href="<%= newBidPath(publication) %>">Ofertar</a>
+              <% } %>      
+            <% } %>       
           </td>
         </tr>
         <% }) %>

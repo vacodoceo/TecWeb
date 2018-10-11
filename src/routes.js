@@ -3,9 +3,10 @@ const KoaRouter = require('koa-router');
 const hello = require('./routes/hello');
 const index = require('./routes/index');
 const publications = require('./routes/publications');
-const comments = require('./routes/comments');
 const users = require('./routes/users');
 const session = require('./routes/session');
+const comments = require('./routes/comments');
+const bids = require('./routes/bids');
 
 
 const router = new KoaRouter();
@@ -31,10 +32,11 @@ router.use(async (ctx, next) => {
 
 router.use('/', index.routes());
 router.use('/hello', hello.routes());
-router.use('/publications', publications.routes());
-router.use('/publications/:pid', comments.routes());
 router.use('/users', users.routes());
 router.use('/session', session.routes());
+router.use('/publications', publications.routes());
+router.use('/publications/:pid/comments', comments.routes());
+router.use('/publications/:pid/bids', bids.routes());
 
 
 module.exports = router;

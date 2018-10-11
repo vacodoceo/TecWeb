@@ -1,0 +1,28 @@
+<div class="Full">
+  <div class="fondoAzulCool">
+    <h1>Ofertar</h1>      
+  </div>
+  <div class="container2">
+    <div class="cardTable addForm">
+      <form action="<%= submitPath %>" method="post">
+
+        <input type="hidden" id="userId" name="userId" value=<%= currentUser.id %>>
+        <input type="hidden" id="publicationId" name="publicationId" value=<%= publication.id %>>
+
+        <div class="row">
+          <label for="description">
+
+            <span>Descripción de oferta</span>
+            <br>
+            <textarea placeholder = "Describe tu oferta aquí" rows="5" cols="50" type="text" name="description" id="description" ></textarea>
+          </label>
+        </div>
+
+
+        <div class="actions">
+          <input type="submit" value="Ofertar" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
