@@ -1,22 +1,42 @@
-<h1>
-  Inicia sesión en Wican
-</h1>
- <div>
-<form class="single-form" action="<%= submitPath %>" method="post">
-    <% if (locals.error) { %>
-      <div class="error"><%= error %></div>
-    <% } %>
-    <input type="hidden" name="_method" value="put" />
-    <label for="email">
-      <span>e-mail</span>
-      <input type="email" name="email" id="email" value="<%= locals.email %>" />
-    </label>
-    <label for="password">
-      <span>contraseña</span>
-      <input type="password" name="password" id="password" />
-    </label>
-    <div class="actions">
-      <input type="submit" value="Inicia sesión" />
+<div class="Full2">
+  <div class="fondoAzulCool">
+    <h1>
+      Inicio Sesion
+    </h1>
+  </div>
+
+
+  <div class="container2">
+    <div class="cardTable corto">
+
+      <form class="single-form" action="<%= submitPath %>" method="post">
+        <% if (locals.error) { %>
+        <div class="error">
+          <%= error %>
+        </div>
+        <% } %>
+
+        <div class="row">
+          <input type="hidden" name="_method" value="put" />
+          <label for="email">
+            <span>e-mail</span>
+            <input type="email" name="email" id="email" value="<%= locals.email %>" />
+          </label>
+        </div>
+
+        <div class="row">
+          <label for="password">
+            <span>contraseña</span>
+            <input type="password" name="password" id="password" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <input type="submit" value="Inicia sesión" />
+        </div>
+
+
+      </form>
     </div>
-  </form>
+  </div>
 </div>
