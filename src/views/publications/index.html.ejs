@@ -45,11 +45,13 @@
           </td>
           <td>
             <a href="<%= getShowPath(publication) %>">Ver</a>
-            <a href="<%= getEditPath(publication) %>">Editar</a>
-            <form action="<%= getDestroyPath(publication) %>" method="post">
-              <input type="hidden" name="_method" value="delete" />
-              <input type="submit" value="Borrar" />
-            </form>
+            <% if (locals.currentUser && currentUser.id === publication.userId) { %>
+              <a href="<%= getEditPath(publication) %>">Editar</a>
+              <form action="<%= getDestroyPath(publication) %>" method="post">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" value="Borrar" />
+              </form>
+            <% } %>
           </td>
         </tr>
         <% }) %>
