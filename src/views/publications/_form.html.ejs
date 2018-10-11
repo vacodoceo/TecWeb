@@ -6,20 +6,7 @@
         <input type="hidden" name="_method" value="patch" />
         <% } %>
 
-        <div class="row">
-          <label for="userId">
-            <span>Autor</span>
-            <select name="userId" id="userId" />
-            <option disabled selected value> -- Selecciona un Autor --
-              <% users.forEach(user => { %>
-            <option <%=publication.userId==user.id ? 'selected' : '' %> value="
-              <%= user.id %>" >
-              <%= user.firstName + " " + user.lastName%>
-            </option>
-            <% }) %>
-            </select>
-          </label>
-        </div>
+        <input type="hidden" id="userId" name="userId" value=<%= currentUser.id %>>
 
         <div class="row">
           <label for="title">

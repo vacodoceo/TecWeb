@@ -47,14 +47,12 @@ router.get('publications-show', '/:id', async (ctx) => {
 router.get('publications-edit', '/:id/edit', async (ctx) => {
     const { publication } = ctx.state;
     const categories = await ctx.orm.category.findAll();
-    const users = await ctx.orm.user.findAll();
 
     return ctx.render(
       'publications/edit',
       {
         publication,
         categories,
-        users,
         submitPath: ctx.router.url('publications-update', publication.id),
       },
     );
