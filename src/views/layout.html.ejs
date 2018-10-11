@@ -13,8 +13,22 @@
       <div id="menu">
           <a href="/" class="menuitem">Inicio</a>
           <a href="/publications" class="menuitem">Publicaciones</a>
-          <a href="#mission_content" class="menuitem">Mission</a>
-          <a href="#contact_content" class="menuitem">Contact</a>
+
+
+          <% if (locals.currentUser) { %>
+            <a class="menuitem menuitemright">Bienvenido, <%= currentUser.firstName %></a> 
+            <form action="<%= destroySessionPath %>" method="post">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="submit" value="Cerrar Sesión" class="menuitem" />
+            </form>
+
+
+          <% } else { %>
+            <a class = "menuitem menuitemright" href="<%= newSessionPath %>">Iniciar sesión</a>
+          <% } %>
+
+
+
       </div>
     <%- body %>
     <script src="<%= assetPath('app.js') %>"></script>

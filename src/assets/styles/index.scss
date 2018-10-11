@@ -35,6 +35,15 @@ $final: #0A8AC8;
     color: white;
 }
 
+.menuitemright{
+    text-align: right !important;
+    margin-left: auto;
+    text-decoration: none;
+}
+.menuitemright:hover{
+    background-color: $final;
+    color: white;
+}
 
 
 body{
