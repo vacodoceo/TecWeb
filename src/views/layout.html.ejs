@@ -3,20 +3,23 @@
 
   <head>
     <meta charset="utf-8">
-    <title>IIC2513 - CHANGE-ME</title>
+    <title>TecWeb</title>
     <% if (env !== 'development') { %>
       <link rel="stylesheet" href="<%= assetPath('app.css') %>">
     <% } %>
   </head>
 
   <body>
-    <header>
-      <!-- <div id="logo">
-        <img src="<%= assetPath('logo.png') %>" alt="Logo" />
-      </div> -->
-    </header>
+      <div id="menu">
+          <a href="/" class="menuitem">Inicio</a>
+          <a href="/publications" class="menuitem">Publicaciones</a>
+          <a href="#mission_content" class="menuitem">Mission</a>
+          <a href="#contact_content" class="menuitem">Contact</a>
+      </div>
     <%- body %>
     <script src="<%= assetPath('app.js') %>"></script>
+
+
   </body>
 
 </html>

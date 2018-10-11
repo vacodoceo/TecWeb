@@ -1,0 +1,87 @@
+.Full{
+    justify-content: center;
+    // padding-left: 30%;
+}
+
+.cardTable {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background-color: white;
+    border-radius: 6px;
+    padding: 20px;
+    border-spacing: 50px 15px;
+    margin-bottom: 20px;
+}
+.addForm{
+    width: 700px !important;
+    
+}
+.addForm.label{
+    margin-bottom: 20px;
+
+}
+.cardTable:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container2 {
+    padding: 2px 16px;
+}
+
+.fondoAzulCool{
+        margin-top: 30px;
+        margin-left: 30px;
+        margin-bottom: 30px;
+        padding: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+        background-color: $final;
+        color: $primary;
+        width: auto;
+        display: inline-block;
+        a{
+            display: block;
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+        }
+}
+
+
+
+.lengthAdjust{
+    display: inline-block;
+    max-width: 200px;
+
+}
+
+.defaultButton{
+        width: auto;
+        border-radius: 20px;
+        background-color: $final;
+        color: $primary;
+        font-size: 20px;
+        padding: 4%;
+        display: inline-block;
+        text-decoration: none;
+        
+}
+
+.row{
+    max-width: 100%;
+    padding: 10px;
+}
+
+.row{label{
+    margin-left: 20px;}}
+
+#description{
+    margin-left: 20px;
+}
+
+.corto{
+    max-width: 300px;
+}
+

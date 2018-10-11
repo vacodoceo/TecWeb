@@ -1,55 +1,72 @@
-<h1>Todas las publicaciones</h1>
-<p>Hay un total de <%= publications.length %> publicaciones</p>
-<p>
-  <a href="<%= newPublicationPath %>">Crear nueva publicación</a>
-</p>
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Categoría</th>
-      <th>Tipo de intercambio</th>
-      <th>Valor Estimado</th>
-      <th>Propietario<th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% publications.forEach(publication => { %>
-      <tr>
-        <td><%= publication.title %></td>
-        <td>
-          <% categories.forEach(category => { %>
+<div class="Full">
+  <a href="/">
+    <div class="fondoAzulCool">
+      <h1>Publicaciones</h1>
+    </div>
+  </a>
+  <div class="container2">
+    <table class="cardTable">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Tipo de intercambio</th>
+          <th>Valor Estimado</th>
+          <th>Propietario</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% publications.forEach(publication => { %>
+        <tr>
+          <td>
+            <%= publication.title %>
+          </td>
+          <td>
+            <% categories.forEach(category => { %>
             <% if (category.id == publication.categoryId) { %>
-              <%= category.name %>
+            <%= category.name %>
             <% } %>
-          <% }) %>
-        </td>
-        <td><%= (publication.exchange_type == 'gift')? "Regalo" : "Intercambio" %></td>
-        <td><%= publication.value %></td>
-        <td>
-          <% users.forEach(user => { %>
+            <% }) %>
+          </td>
+          <td>
+            <%= (publication.exchange_type == 'gift')? "Regalo" : "Intercambio" %>
+          </td>
+          <td>
+            <%= publication.value %>
+          </td>
+          <td>
+            <% users.forEach(user => { %>
             <% if (user.id == publication.userId) { %>
-              <%= user.firstName + ' ' + user.lastName %>
+            <%= user.firstName + ' ' + user.lastName %>
             <% } %>
-          <% }) %>
-        </td>
-        <td>
-          <ul>
-            <li><a href="<%= getShowPath(publication) %>">Ver</a></li>
-            <li><a href="<%= getEditPath(publication) %>">Editar</a></li>
-            <li>
-              <form action="<%= getDestroyPath(publication) %>" method="post">
-                <input type="hidden" name="_method" value="delete" />
-                <input type="submit" value="Borrar" />
-              </form>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    <% }) %>
-  </tbody>
-  <p>
-  <a href="/">Ir al Index</a>
-  </p>
-</table>
+            <% }) %>
+          </td>
+          <td>
+            <a href="<%= getShowPath(publication) %>">Ver</a>
+            <a href="<%= getEditPath(publication) %>">Editar</a>
+            <form action="<%= getDestroyPath(publication) %>" method="post">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="submit" value="Borrar" />
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+
+    </table>
+    <div class="cardTable corto">
+      <a href="<%= newPublicationPath %>">
+        <button class="defaultButton" href=>Nueva Publicacion </button>
+      </a>
+    </div>
+
+    <div class="cardTable corto">
+        <p>Viendo
+          <%= publications.length %> publicaciones</p>
+        <p>
+    </div>
+
+  </div>
+</div>
