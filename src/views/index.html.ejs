@@ -7,13 +7,23 @@
     <!-- <div id="react-app"> Here a React app will be rendered </div> -->
 
     <div class="containerH">
-      <div class="box1">
-        <a href="<%= newSessionPath %>"><button>Iniciar Sesión</button></a>
-      </div>
 
-      <div class="box1">
-        <a href="<%= newUserPath %>"> <button>Registrarse</button></a>
-      </div>
+      <% if (locals.currentUser) { %>
+        <!-- Ajustar el tamaño de este boton -->
+        <div class="box1">
+          <a href="<%= publicationsPath %>"><button>Ver Publicaciones</button></a>
+        </div>
+
+      <% } else { %>
+        <div class="box1">
+          <a href="<%= newSessionPath %>"><button>Iniciar Sesión</button></a>
+        </div>
+
+        <div class="box1">
+          <a href="<%= newUserPath %>"> <button>Registrarse</button></a>
+        </div>
+      <% } %>
+      
       <!-- <div class="box2"></div> -->
     </div>
     <div class="box1">

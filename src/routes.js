@@ -3,6 +3,7 @@ const KoaRouter = require('koa-router');
 const hello = require('./routes/hello');
 const index = require('./routes/index');
 const publications = require('./routes/publications');
+const comments = require('./routes/comments');
 const users = require('./routes/users');
 const session = require('./routes/session');
 
@@ -13,6 +14,7 @@ router.use(async (ctx, next) => {
   Object.assign(ctx.state, {
     newSessionPath: ctx.router.url('session-new'),
     destroySessionPath: ctx.router.url('session-destroy'),
+    publicationsPath: ctx.router.url('publications'),
 });
 return next();
 });
