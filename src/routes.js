@@ -30,7 +30,9 @@ router.use(async (ctx, next) => {
 router.use('/', index.routes());
 router.use('/hello', hello.routes());
 router.use('/publications', publications.routes());
+router.use('/publications/:pid', comments.routes());
 router.use('/users', users.routes());
 router.use('/session', session.routes());
+
 
 module.exports = router;
