@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const bid = sequelize.define('bid', {
     description: DataTypes.STRING,
+    status: DataTypes.STRING,
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
