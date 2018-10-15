@@ -6,7 +6,8 @@
     <div class="cardTable addForm">
       <form action="<%= submitPath %>" method="post">
 
-        <input type="hidden" id="userId" name="userId" value=<%= currentUser.id %>>
+        <input type="hidden" id="bidderId" name="bidderId" value=<%= currentUser.id %>>
+        <input type="hidden" id="receiverId" name="receiverId" value=<%= receiver_user.id %>>
         <input type="hidden" id="publicationId" name="publicationId" value=<%= publication.id %>>
 
         <div class="row">

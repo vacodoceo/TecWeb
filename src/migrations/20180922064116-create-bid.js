@@ -22,7 +22,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      userId: {
+      bidderId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
+      receiverId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'users',

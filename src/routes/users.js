@@ -56,10 +56,18 @@ router.delete('users-destroy', '/:id', async (ctx) => {
     ctx.redirect(ctx.router.url('users'));
 });
 
-router.get('users-show-bids', '/:id/bids', async (ctx) => {
+router.get('users-show-bids', '/:id/my_bids', async (ctx) => {
     ctx.body = await ctx.orm.bid.findAll({
         where: {
-            userId: ctx.params.id
+            bidderId: ctx.params.id
+        }
+    });
+});
+
+router.get('users-show-bids', '/:id/received_bids', async (ctx) => {
+    ctx.body = await ctx.orm.bid.findAll({
+        where: {
+            receiverId: ctx.params.id
         }
     });
 });

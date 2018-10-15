@@ -17,9 +17,11 @@ router.get('bids', '/', async (ctx) => {
 });
 
 router.get('bids-new', '/new', async (ctx) => {    
-    publication = await ctx.orm.publication.findById(ctx.params.pid);
+    const publication = await ctx.orm.publication.findById(ctx.params.pid);
+    const receiver_user = await ctx.orm.user.findById(publication.userId)
     return ctx.render('bids/new', {
         publication,
+        receiver_user,
         bid: ctx.orm.bid.build(), 
         submitPath: ctx.router.url('bids-create', publication.id),
     });

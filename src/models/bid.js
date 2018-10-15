@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   bid.associate = function associate(models) {
-    bid.belongsTo(models.user);
+    bid.belongsTo(models.user, {as: 'receiver'});
+    bid.belongsTo(models.user, {as: 'bidder'});
     bid.belongsTo(models.publication);
   };
   return bid;
