@@ -32,7 +32,14 @@ router.post('users-create', '/', async (ctx) => {
     ctx.redirect(ctx.router.url('users'));
 });
 router.get('users-show', '/:id', async (ctx) => {
-    ctx.body = ctx.state.user;
+    const { user } = ctx.state;
+    return ctx.render(
+      'users/show', 
+      {
+        user, 
+        userPublications: user => ctx.router.url('users-show-bids', user.id),
+      },
+    );
 });
 
 router.get('users-edit', '/:id/edit', (ctx) => {
@@ -71,5 +78,6 @@ router.get('users-show-bids', '/:id/received_bids', async (ctx) => {
         }
     });
 });
+
 
 module.exports = router;
